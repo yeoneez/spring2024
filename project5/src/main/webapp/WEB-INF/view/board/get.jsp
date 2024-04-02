@@ -56,6 +56,11 @@
 					operForm.submit();
 					
 				});
+				
+// 				var bnoValue = $("#operForm").find("#bno").val();
+// 				var replyUL = $(".chat");
+				
+// 				replyList.showList(1, bnoValue, replyUL);
 			});
 	</script>
 
@@ -154,11 +159,21 @@
 					</div>
 				</div>
 				
-				<%@ include file="../reply/reply_modal.jsp" %>
+				<%@include file="../reply/reply_modal_ui.jsp"%>
 				
-				<%@include file="../reply/reply_list.jsp" %>
+				<script type="text/javascript" src="/resources/js/reply/reply_new_btn_load.js"></script>
+				
+<%-- 				<%@ include file="../reply/reply_modal.jsp" %> --%>
+				
+<%-- 				<%@include file="../reply/reply_list.jsp" %> --%>
 			
-				<script type="text/javascript" src="/resources/js/reply_ajax.js"></script>
+				<script type="text/javascript" src="/resources/js/reply/reply_ajax.js"></script>
+				
+				<script type="text/javascript" src="/resources/js/reply/reply_list.js"></script>
+				
+				<script type="text/javascript" src="/resources/js/reply/reply_list_load.js"></script>
+				
+				<script type="text/javascript" src="/resources/js/reply/reply_list_click_load.js"></script>
 				
 <%-- 				<%@include file="../reply/reply_ajax_test.jsp" %> --%>
 									

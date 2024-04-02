@@ -1,11 +1,8 @@
-$(document).ready(function() {
+console.log("Reply List Module......");
+
+var replyList = (function(){
 	
-	var bnoValue = '219';
-	var replyUL = $(".chat");
-	
-	showList(1);
-	
-	function showList(page) {
+	function showList(page, bnoValue, replyUL) {
 		
 		replyService.getList({bno:bnoValue, page: page|| 1}, function(list) {
 			
@@ -25,11 +22,15 @@ $(document).ready(function() {
 			
 		replyUL.html(str);
 		
-		});
-		
+		});		
 	}
 	
-});
+	return {
+			showList : showList
+		};
+		
+})();
+	
 
 	
 //	var pageNum = 1;
