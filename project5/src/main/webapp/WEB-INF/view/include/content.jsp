@@ -95,10 +95,11 @@
 						<ul class="pagination justify-content-center">
 
 							<c:if test="${pageMaker.prev}">
-								<li class="page-item"><a class="page-link"
-									href="${pageMaker.startPage -1}" aria-label="Previous"> <span
-										aria-hidden="true">&laquo;</span> <!--왼쪽으로 꺾인 괄호<<  -->
-								</a></li>
+								<li class="page-item">
+									<a class="page-link" href="${pageMaker.startPage -1}" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span> <!--왼쪽으로 꺾인 괄호<<  -->
+									</a>
+								</li>
 							</c:if>
 
 							<c:forEach var="num" begin="${pageMaker.startPage}"
@@ -109,10 +110,11 @@
 							</c:forEach>
 
 							<c:if test="${pageMaker.next}">
-								<li class="page-item"><a class="page-link"
-									href="${pageMaker.endPage +1 }" aria-label="Next"> <span
+								<li class="page-item">
+									<a class="page-link" href="${pageMaker.endPage +1 }" aria-label="Next"> <span
 										aria-hidden="true">&raquo;</span> <!-- 오른쪽으로 꺾인 괄호>> -->
-								</a></li>
+									</a>
+								</li>
 							</c:if>
 
 						</ul>

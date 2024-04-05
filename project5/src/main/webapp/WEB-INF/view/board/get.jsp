@@ -118,12 +118,12 @@
 <!-- 									<a href="/board/list">List</a> -->
 <!-- 								</button> -->
 								
-<!-- 								<button type="submit" data-oper='modify' class="btn-btn-default">Modify</button> -->
-<!-- 								<button type="submit" data-oper='remove' class="btn-btn-danger">Remove</button> -->
-<!-- 								<button type="submit" data-oper='list' class="btn-btn-info">List</button> -->
+<!-- 								<button type="submit" data-oper='modify' class="btn btn-default">Modify</button> -->
+<!-- 								<button type="submit" data-oper='remove' class="btn btn-danger">Remove</button> -->
+<!-- 								<button type="submit" data-oper='list' class="btn btn-info">List</button> -->
 
 								<button data-oper='modify' class="btn btn-default">Modify</button>
-								<button data-oppr='list' class="btn btn-info">List</button>
+								<button data-oper='list' class="btn btn-info">List</button>
 								
 								<form id='operForm' action="/board/modify" method="get"> <!-- Get방식 수정창 띄우는거니까 -->
 									<input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
@@ -152,6 +152,7 @@
 							</div>
 							
 							<div class="panel-footer">
+								<input type='hidden' id='pageNumReply' value='1'>
 							</div>
 							
 							
@@ -162,11 +163,7 @@
 				<%@include file="../reply/reply_modal_ui.jsp"%>
 				
 				<script type="text/javascript" src="/resources/js/reply/reply_new_btn_load.js"></script>
-				
-<%-- 				<%@ include file="../reply/reply_modal.jsp" %> --%>
-				
-<%-- 				<%@include file="../reply/reply_list.jsp" %> --%>
-			
+						
 				<script type="text/javascript" src="/resources/js/reply/reply_ajax.js"></script>
 				
 				<script type="text/javascript" src="/resources/js/reply/reply_list.js"></script>
@@ -174,6 +171,8 @@
 				<script type="text/javascript" src="/resources/js/reply/reply_list_load.js"></script>
 				
 				<script type="text/javascript" src="/resources/js/reply/reply_list_click_load.js"></script>
+				
+				<script type="text/javascript" src="/resources/js/reply/reply_page_click_load.js"></script>
 				
 <%-- 				<%@include file="../reply/reply_ajax_test.jsp" %> --%>
 									
