@@ -1,12 +1,9 @@
 package com.example.service;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.example.domain.Criteria;
+import com.example.domain.ReplyPageDTO;
 import com.example.domain.ReplyVO;
 import com.example.mapper.ReplyMapper;
 
@@ -51,20 +48,20 @@ public class ReplyServiceImpl implements ReplyService {
 		return mapper.delete(rno);
 	}
 
-	@Override
-	public List<ReplyVO> getList(Criteria cri, Long bno) {
-		
-		log.info("get Reply List of a Board " + bno);
-		
-		return mapper.getListWithPaging(cri, bno);
-	}
-
 //	@Override
-//	public ReplyPageDTO getListPage(Criteria cri, Long bno) {
+//	public List<ReplyVO> getList(Criteria cri, Long bno) {
 //		
-//		return new ReplyPageDTO(
-//				mapper.getCountByBno(bno),
-//				mapper.getListWithPaging(cri, bno));
-//		}
+//		log.info("get Reply List of a Board " + bno);
+//		
+//		return mapper.getListWithPaging(cri, bno);
+//	}
+
+	@Override
+	public ReplyPageDTO getListPage(Criteria cri, Long bno) {
+		
+		return new ReplyPageDTO(
+				mapper.getCountByBno(bno),
+				mapper.getListWithPaging(cri, bno));
+		}
 	
 }

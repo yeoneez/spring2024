@@ -1,9 +1,5 @@
 package com.example.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.Criteria;
+import com.example.domain.ReplyPageDTO;
 import com.example.domain.ReplyVO;
 import com.example.service.ReplyService;
 
@@ -85,33 +82,35 @@ public class ReplyController {
 		
 	}
 	
-	@GetMapping(value = "/pages/{bno}/{page}",
-				produces = {MediaType.APPLICATION_XML_VALUE,
-							MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<List<ReplyVO>> getList(
-			@PathVariable("page") int page,
-			@PathVariable("bno") Long bno) {
-		
-		log.info("getList............");
-		Criteria cri = new Criteria(page, 10);
-		log.info(cri);
-		
-		return new ResponseEntity<>(service.getList(cri, bno), HttpStatus.OK);
-	}
-	
 //	@GetMapping(value = "/pages/{bno}/{page}",
-//			produces = {MediaType.APPLICATION_XML_VALUE,
-//						MediaType.APPLICATION_JSON_VALUE})
-//	public ResponseEntity<ReplyPageDTO> getList(@PathVariable("page") int page, @PathVariable("bno") Long bno) {
+//				produces = {MediaType.APPLICATION_XML_VALUE,
+//							MediaType.APPLICATION_JSON_VALUE})
+//	public ResponseEntity<List<ReplyVO>> getList(
+//			@PathVariable("page") int page,
+//			@PathVariable("bno") Long bno) {
 //		
+//		log.info("getList............");
 //		Criteria cri = new Criteria(page, 10);
+//		log.info(cri);
 //		
-//		log.info("get Reply List bno: " + bno);
-//		
-//		log.info("cri:" + cri);
-//		
-//		return new ResponseEntity<>(service.getListPage(cri, bno), HttpStatus.OK);
+//		return new ResponseEntity<>(service.getList(cri, bno), HttpStatus.OK);
 //	}
+	
+	@GetMapping(value = "/pages/{bno}/{page}",
+			produces = {MediaType.APPLICATION_XML_VALUE,
+						MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<ReplyPageDTO> getList(@PathVariable("page") int page,
+												@PathVariable("bno") Long bno) 
+	{
+		
+		Criteria cri = new Criteria(page, 10);
+		
+		log.info("get Reply List bno: " + bno);
+		
+		log.info("cri:" + cri);
+		
+		return new ResponseEntity<>(service.getListPage(cri, bno), HttpStatus.OK);
+	}
 	
 }
 

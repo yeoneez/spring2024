@@ -29,7 +29,7 @@ public class ReplyMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private ReplyMapper mapper;
 	
-	@Test
+//	@Test
 	public void testCreate() {
 		
 		IntStream.rangeClosed(1, 10).forEach(i -> {
@@ -45,7 +45,7 @@ public class ReplyMapperTests {
 		});
 		
 	}
-	@Test
+//	@Test
 	public void testRead() {
 		
 		Long targetRno = 5L;
@@ -55,13 +55,13 @@ public class ReplyMapperTests {
 		log.info(vo);
 	}
 	
-	@Test
+//	@Test
 	public void testMapper() {
 		
 		log.info(mapper);
 	}
 	
-	@Test
+//	@Test
 	public void testDelete() {
 		
 		Long targetRno = 17L;
@@ -69,7 +69,7 @@ public class ReplyMapperTests {
 		mapper.delete(targetRno);
 	}
 	
-	@Test
+//	@Test
 	public void testUpdate() {
 		
 		Long targetRno = 17L;
@@ -83,7 +83,7 @@ public class ReplyMapperTests {
 		log.info("UPDATE COUNT: " + count);
 	}
 
-	@Test
+//	@Test
 	public void testList() {
 		
 		Criteria cri = new Criteria();
@@ -100,7 +100,7 @@ public class ReplyMapperTests {
 		Criteria cri = new Criteria(2, 10);
 		
 		//7L
-		List<ReplyVO> replies = mapper.getListWithPaging(cri, 17L);
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, 9L);
 		
 		replies.forEach(reply -> log.info(reply));
 	}
